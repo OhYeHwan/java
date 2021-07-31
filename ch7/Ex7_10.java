@@ -34,7 +34,7 @@ class Buyer {
     int money = 1000;
     int bonus = 0;
 
-    void buy(Product p) {
+    void buy(Product p) { // 매개변수 다형성
         if(p.price > money) {
             System.out.println("돈이 모자랍니다.");
             return;
@@ -49,6 +49,11 @@ class Buyer {
 public class Ex7_10 {
     public static void main(String[] args) {
         Buyer buyer = new Buyer();
+        // Product m = new Mouse();
+        // buyer.buy(m);
+        // 조상 타입의 참조변수로 자손타입 객체를 다루는 경우! ==> 다형성 사용
+        // 매개변수 다형성
+
         buyer.buy(new Mouse());
         System.out.println("금액 : " + buyer.money + "적립금 : " + buyer.bonus);
         buyer.buy(new Keyboard());
