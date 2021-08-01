@@ -30,5 +30,46 @@ public class Ex7_15 {
 }
 */
 
+abstract class Unit2 {
+    int x,y;
+    abstract void move(int x, int y);
+    void stop() {
+        System.out.println("멈춥니다.");
+    }
+}
+
+interface Fightable2 { // 인터페이스의 모든 메서드는 public abstract 가 생략
+    void move(int x, int y); // public abstract가 생략됨
+    void attack(Fightable2 f);  // public abstract가 생략됨
+}
+
+class Fighter3 extends Unit2 implements Fightable2 {
+    // 오버라이딩 규칙 : 조상(public) 보다 접근제어자의 범위가 좁으면 안된다.
+    public void move(int x, int y) {
+        System.out.println("[" + x + "," + y + "] 로 이동");
+    }
+    public void attack(Fightable2 f) {
+        System.out.println(f+"를 공격");
+    }
+
+    Fightable2 getFightable() {
+        Fightable2 f = new Fighter3();
+        return f;
+    }
+}
+
 public class Ex7_15 {
+    public static void main(String[] args) {
+        Unit2 f = new Fighter3();
+        f.move(100, 200);
+        Fighter3 f2 = new Fighter3();
+       // f.attack(f2);  Unit2 에는 attack() 가 없어서 호출 불가
+
+        Fightable2 f3 = new Fighter3();
+       // f3.stop();  Fightable2 에는 stop() 가 없어서 호출 불가
+
+        Fighter3 ff = new Fighter3();
+        Fightable2 ff2 = ff.getFightable();
+
+    }
 }
