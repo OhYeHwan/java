@@ -31,5 +31,12 @@ public class Ex10_1 {
         System.out.println("TimeZone(-12~+12) : " + today.get(Calendar.ZONE_OFFSET));
         System.out.println("이 달의 마지막 날 : " + today.get(Calendar.DATE)); // 이달의 마지막일을 찾는다
 
+        int year = today.get(Calendar.YEAR);
+        int month = today.get(Calendar.MONTH) + 1;
+        int day = today.get(Calendar.DATE);
+
+
+        System.out.println(year + "년 " + month + "월 " + day + "일 ");
+        System.out.println(today.get(Calendar.HOUR) + "시 " + today.get(Calendar.MINUTE) + "분 " + today.get(Calendar.SECOND) + "초 ");
     }
 }

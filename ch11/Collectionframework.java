@@ -26,6 +26,3 @@ package ch11;
 // 순서 X
 // 중복 키 : X
 // 중복 값 : O
-
-
-public class Ex11_1 { }
